@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "target": "es2017",
+        "outDir": "build/main",
+        "rootDir": "src",
+        "moduleResolution": "node",
+        "module": "ESNext",
+        "strict": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "jsx": "react",
+        "jsxFactory": "h",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "traceResolution": false,
+        "listEmittedFiles": false,
+        "listFiles": false,
+        "pretty": true,
+        "lib": ["es2017", "dom"]
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "exclude": ["node_modules/**"],
+    "compileOnSave": false
+}

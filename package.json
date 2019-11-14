@@ -1,0 +1,26 @@
+{
+    "name": "basedrum",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "author": "Malte Wessel",
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@types/jest": "^24.0.23",
+        "@types/lodash": "^4.14.147",
+        "jest": "^24.9.0",
+        "lodash": "^4.17.15",
+        "preact": "^10.0.5",
+        "rxjs": "^6.5.3",
+        "ts-jest": "^24.1.0",
+        "tslint": "^5.20.1",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.7.2"
+    },
+    "peerDependencies": {
+        "preact": "^10.0.5",
+        "rxjs": "^6.5.3"
+    }
+}
