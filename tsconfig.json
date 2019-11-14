@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
         "baseUrl": "./",
-        "target": "es2017",
+        "target": "es2015",
         "outDir": "build/main",
         "rootDir": "src",
         "moduleResolution": "node",
-        "module": "ESNext",
+        "module": "esnext",
         "strict": true,
         "declaration": true,
         "esModuleInterop": true,

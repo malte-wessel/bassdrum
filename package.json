@@ -5,6 +5,7 @@
     "license": "MIT",
     "author": "Malte Wessel",
     "scripts": {
+        "build": "tsc -b",
         "test": "jest"
     },
     "devDependencies": {
