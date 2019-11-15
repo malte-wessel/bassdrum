@@ -1,4 +1,3 @@
-import toPairs from 'lodash/toPairs';
 import { isObservable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { mergeIntoObject } from './mergeIntoObject';
@@ -8,8 +7,8 @@ interface MergeObjectDictionary {
 }
 
 export function mergeObject(dictionary: MergeObjectDictionary) {
-    const pairs = toPairs(dictionary);
-    const observables = pairs.map(([key, value]) => {
+    const observables = Object.keys(dictionary).map(key => {
+        const value = dictionary[key];
         if (isObservable(value)) {
             return value.pipe(
                 map(val => ({
