@@ -2,6 +2,8 @@
 
 A thin wrapper around preact that let's you create reactive type safe components with rxjs.
 
+Prior art: [melody-streams](https://github.com/trivago/melody/tree/master/packages/melody-streams)
+
 ## Example
 
 ```tsx
