@@ -1,6 +1,6 @@
 # basedrum
 
-A thin wrapper around preact that let's you create reactive components with rxjs.
+A thin wrapper around preact that let's you create reactive type safe components with rxjs.
 
 ## Example
 
