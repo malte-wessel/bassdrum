@@ -13,24 +13,11 @@ class BasedrumComponent<P, S> extends Component<P, S> {
         this.propsStream = new BehaviorSubject(props);
         this.updates = new Subject();
         this.subscriptions = [];
-
-        let hasEmitted = false;
-        this.createStateStream().subscribe(state => {
-            hasEmitted = true;
-            this.setState(state);
-        });
-
-        if (!hasEmitted) {
-            throw new Error(
-                'Your Component did not emit any state when it was created. ' +
-                    'Make sure that the Observable that you return from your ' +
-                    'component function emits immediately.',
-            );
-        }
+        this.subscriptions.push(this.createSubscription());
     }
 
-    createStateStream(): Observable<S> {
-        return new Observable();
+    createSubscription(): Subscription {
+        return new Subscription();
     }
 
     componentWillMount() {}
@@ -85,10 +72,23 @@ export const createComponent = <P, S>(
     template: ComponentTemplate<S>,
 ) =>
     class extends BasedrumComponent<P, S> {
-        createStateStream(): Observable<S> {
-            return componentFunction(createComponentAPI(this)).pipe(
-                distinctUntilChanged(shallowEqual),
-            );
+        createSubscription(): Subscription {
+            let hasEmitted = false;
+            const subscription = componentFunction(createComponentAPI(this))
+                .pipe(distinctUntilChanged(shallowEqual))
+                .subscribe(state => {
+                    hasEmitted = true;
+                    this.setState(state);
+                });
+
+            if (!hasEmitted) {
+                throw new Error(
+                    'Your Component did not emit any state when it was created. ' +
+                        'Make sure the Observable you return from your ' +
+                        'component function emits immediately.',
+                );
+            }
+            return subscription;
         }
         render(): ComponentChild {
             return template(this.state);
