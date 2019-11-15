@@ -13,12 +13,12 @@ export function mergeObject(dictionary: MergeObjectDictionary) {
         if (isObservable(value)) {
             return value.pipe(
                 map(val => ({
-                    [key]: val
-                }))
+                    [key]: val,
+                })),
             );
         }
         return of({
-            [key]: value
+            [key]: value,
         });
     });
     return mergeIntoObject(...observables);
