@@ -1,0 +1,25 @@
+{
+    "name": "bassdrum-example-simple",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.7.2",
+        "@babel/preset-env": "^7.7.1",
+        "@babel/preset-react": "^7.7.0",
+        "@babel/preset-typescript": "^7.7.2",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-jsx-pragmatic": "^1.0.2",
+        "babel-plugin-transform-react-jsx": "^6.24.1",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0"
+    },
+    "dependencies": {
+        "preact": "^10.0.5",
+        "rxjs": "^6.5.3"
+    }
+}

@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": "./",
+        "baseUrl": ".",
         "target": "es2015",
         "outDir": "build",
         "rootDir": "src",
@@ -15,10 +15,10 @@
         "noUnusedParameters": true,
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
-        "traceResolution": false,
-        "listEmittedFiles": false,
-        "listFiles": false,
         "pretty": true,
+        "paths": {
+            "bassdrum": ["../../build"]
+        },
         "lib": ["es2017", "dom"]
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"],

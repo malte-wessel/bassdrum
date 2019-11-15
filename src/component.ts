@@ -20,7 +20,9 @@ class BassdrumComponent<P, S> extends Component<P, S> {
         return new Subscription();
     }
 
-    componentWillMount() {}
+    componentDidMount() {
+        this.updates.next(this.props);
+    }
 
     componentWillReceiveProps(props: P) {
         this.propsStream.next(props);
