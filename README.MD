@@ -1,4 +1,4 @@
-# basedrum
+# bassdrum
 
 Proof of concept for a thin wrapper around preact that let's you create reactive type safe components with rxjs.
 
@@ -18,7 +18,7 @@ import {
     MouseEventHandler,
     MouseEvent,
     Ref,
-} from 'basedrum';
+} from 'bassdrum';
 
 interface Props {
     name: string;
@@ -64,7 +64,7 @@ const Template: ComponentTemplate<State> = ({
     handleClick,
 }) => (
     <div ref={ref} style={{ width: toggle ? '100%' : '50%' }}>
-        <p>Hello {name}, welcome to basedrum!</p>
+        <p>Hello {name}, welcome to bassdrum!</p>
         <p>This element is {width}px wide.</p>
         <button onClick={handleClick}>Toggle width</button>
     </div>

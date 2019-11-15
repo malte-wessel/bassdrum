@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { shallowEqual } from './util/shallowEqual';
 
-class BasedrumComponent<P, S> extends Component<P, S> {
+class BassdrumComponent<P, S> extends Component<P, S> {
     propsStream: BehaviorSubject<P>;
     updates: Subject<P>;
     subscriptions: Subscription[];
@@ -59,7 +59,7 @@ export type ComponentFunction<P, S> = (
 export type ComponentTemplate<S> = (state: S) => ComponentChild;
 
 const createComponentAPI = <P, S>(
-    component: BasedrumComponent<P, S>,
+    component: BassdrumComponent<P, S>,
 ): ComponentFunctionApi<P> => ({
     props: component.propsStream,
     subscribe: (obs: Observable<unknown>) =>
@@ -71,7 +71,7 @@ export const createComponent = <P, S>(
     componentFunction: ComponentFunction<P, S>,
     template: ComponentTemplate<S>,
 ) =>
-    class extends BasedrumComponent<P, S> {
+    class extends BassdrumComponent<P, S> {
         createSubscription(): Subscription {
             let hasEmitted = false;
             const subscription = componentFunction(createComponentAPI(this))
