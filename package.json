@@ -1,12 +1,13 @@
 {
     "name": "bassdrum",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "main": "./build/index.js",
     "license": "MIT",
     "author": "Malte Wessel",
     "scripts": {
         "build": "tsc -b",
-        "test": "jest"
+        "test": "jest",
+        "publish": "yarn test && yarn build && npm publish"
     },
     "repository": {
         "type": "git",

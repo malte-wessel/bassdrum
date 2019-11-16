@@ -1,2 +1,6 @@
 examples
 src
+.eslintrc.js
+.prettierrc
+jest.*
+yarn.*
