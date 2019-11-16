@@ -5,9 +5,8 @@
     "license": "MIT",
     "author": "Malte Wessel",
     "scripts": {
-        "build": "tsc -b",
-        "test": "jest",
-        "publish": "yarn test && yarn build && npm publish"
+        "build": "yarn test && tsc -b",
+        "test": "jest"
     },
     "repository": {
         "type": "git",
