@@ -8,7 +8,7 @@ import {
     combine,
     createRef,
     createHandler,
-    MouseEventHandler,
+    Handler,
     MouseEvent,
 } from 'bassdrum';
 
@@ -20,7 +20,7 @@ interface State {
     name: string;
     ref: Ref<HTMLDivElement>;
     width: number;
-    handleClick: MouseEventHandler<HTMLButtonElement>;
+    handleClick: Handler<MouseEvent<HTMLButtonElement>>;
     toggle: boolean;
 }
 

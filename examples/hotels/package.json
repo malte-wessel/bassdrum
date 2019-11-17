@@ -1,0 +1,34 @@
+{
+    "name": "bassdrum-example-hotels",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.7.2",
+        "@babel/preset-env": "^7.7.1",
+        "@babel/preset-react": "^7.7.0",
+        "@babel/preset-typescript": "^7.7.2",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-jsx-pragmatic": "^1.0.2",
+        "babel-plugin-transform-react-jsx": "^6.24.1",
+        "classnames": "^2.2.6",
+        "css-loader": "1.0.0",
+        "node-sass": "^4.13.0",
+        "sass-loader": "^8.0.0",
+        "style-loader": "^1.0.0",
+        "typings-for-css-modules-loader": "^1.7.0",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0"
+    },
+    "dependencies": {
+        "@types/classnames": "^2.2.9",
+        "@types/lodash": "^4.14.148",
+        "lodash": "^4.17.15",
+        "preact": "^10.0.5",
+        "rxjs": "^6.5.3"
+    }
+}

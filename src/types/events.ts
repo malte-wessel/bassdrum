@@ -1,41 +1,6 @@
 import { JSX } from 'preact';
 
-export type AnimationEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedAnimationEvent<T>>;
-export type ClipboardEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedClipboardEvent<T>>;
-export type CompositionEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedCompositionEvent<T>>;
-export type DragEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedDragEvent<T>>;
-export type FocusEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedFocusEvent<T>>;
-export type KeyboardEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedKeyboardEvent<T>>;
-export type MouseEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedMouseEvent<T>>;
-export type PointerEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedPointerEvent<T>>;
-export type TouchEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedTouchEvent<T>>;
-export type TransitionEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedTransitionEvent<T>>;
-export type UIEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedUIEvent<T>>;
-export type WheelEventHandler<
-    T extends EventTarget = HTMLElement
-> = JSX.EventHandler<JSX.TargetedWheelEvent<T>>;
+export type Handler<T> = (e: T) => void;
 
 export type AnimationEvent<
     T extends EventTarget = HTMLElement
