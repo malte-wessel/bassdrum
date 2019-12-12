@@ -24,6 +24,7 @@ export interface AccommodationData {
     accommodations: Accommodation[];
 }
 
-export const store = createRestStore<AccommodationParams, AccommodationData>(
-    api,
-);
+export const accommodationsStore = createRestStore<
+    AccommodationParams,
+    AccommodationData
+>(api);

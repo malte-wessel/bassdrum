@@ -1,11 +1,7 @@
-import { BehaviorSubject, Observable, merge, of, from } from 'rxjs';
-import {
-    switchMap,
-    map,
-    distinctUntilChanged,
-    catchError,
-} from 'rxjs/operators';
-import { shallowEqual } from './shallowEqual';
+import { Subject, merge, of, from } from 'rxjs';
+import { switchMap, map, catchError } from 'rxjs/operators';
+import { createStore } from './createStore';
+import { ofType } from './ofType';
 
 export interface RestApi<P, R> {
     get: (params: P) => Promise<R>;
@@ -17,93 +13,103 @@ export interface RestStoreData<R> {
     data: R | null;
 }
 
-interface RestStoreLoadAction {
+export interface RestStoreLoadAction<P> {
     type: 'LOAD';
+    payload: P;
 }
 
-const loadAction = (): RestStoreLoadAction => ({ type: 'LOAD' });
+export interface RestStoreStartAction {
+    type: 'START';
+}
 
-interface RestStoreSuccessAction<R> {
+export interface RestStoreSuccessAction<R> {
     type: 'SUCCESS';
     payload: R;
 }
 
-const successAction = <R>(data: R): RestStoreSuccessAction<R> => ({
-    type: 'SUCCESS',
-    payload: data,
-});
-
-interface RestStoreErrorAction {
+export interface RestStoreErrorAction {
     type: 'ERROR';
     payload: Error;
 }
 
-const errorAction = (error: Error): RestStoreErrorAction => ({
-    type: 'ERROR',
-    payload: error,
-});
-
-type RestStoreActions<R> =
-    | RestStoreLoadAction
+export type RestStoreActions<P, R> =
+    | RestStoreLoadAction<P>
+    | RestStoreStartAction
     | RestStoreSuccessAction<R>
     | RestStoreErrorAction;
 
-const initialState = <R>(): RestStoreData<R> => ({
-    isLoading: false,
-    error: null,
-    data: null,
-});
-
-const reducer = <R>(
-    state: RestStoreData<R>,
-    action: RestStoreActions<R>,
-): RestStoreData<R> => {
-    switch (action.type) {
-        case 'LOAD': {
-            return {
-                ...state,
-                isLoading: true,
-                error: null,
-            };
-        }
-        case 'SUCCESS': {
-            return {
-                ...state,
-                isLoading: false,
-                error: null,
-                data: action.payload,
-            };
-        }
-        case 'ERROR': {
-            return {
-                ...state,
-                isLoading: false,
-                error: action.payload,
-            };
-        }
-        default: {
-            return state;
-        }
-    }
-};
-
 export const createRestStore = <P, R>(api: RestApi<P, R>) => {
-    const subject = new BehaviorSubject<RestStoreData<R>>(initialState());
-    return (params: Observable<P>) => {
-        params
-            .pipe(
-                distinctUntilChanged(shallowEqual),
-                switchMap(params =>
-                    merge(
-                        of(loadAction()),
-                        from(api.get(params)).pipe(
-                            map(successAction),
-                            catchError(err => of(errorAction(err))),
-                        ),
+    const loadAction = (params: P): RestStoreLoadAction<P> => ({
+        type: 'LOAD',
+        payload: params,
+    });
+
+    const startAction = (): RestStoreStartAction => ({ type: 'START' });
+
+    const successAction = (data: R): RestStoreSuccessAction<R> => ({
+        type: 'SUCCESS',
+        payload: data,
+    });
+
+    const errorAction = (error: Error): RestStoreErrorAction => ({
+        type: 'ERROR',
+        payload: error,
+    });
+
+    const initialState = (): RestStoreData<R> => ({
+        isLoading: false,
+        error: null,
+        data: null,
+    });
+
+    const reducer = (
+        state: RestStoreData<R>,
+        action: RestStoreActions<P, R>,
+    ): RestStoreData<R> => {
+        switch (action.type) {
+            case 'START': {
+                return {
+                    ...state,
+                    isLoading: true,
+                    error: null,
+                };
+            }
+            case 'SUCCESS': {
+                return {
+                    ...state,
+                    isLoading: false,
+                    error: null,
+                    data: action.payload,
+                };
+            }
+            case 'ERROR': {
+                return {
+                    ...state,
+                    isLoading: false,
+                    error: action.payload,
+                };
+            }
+            default: {
+                return state;
+            }
+        }
+    };
+    const actionCreators = {
+        load: loadAction,
+    };
+
+    const epic = (actions: Subject<RestStoreActions<P, R>>) =>
+        actions.pipe(
+            ofType('LOAD'),
+            switchMap(action =>
+                merge(
+                    of(startAction()),
+                    from(api.get(action.payload)).pipe(
+                        map(successAction),
+                        catchError(err => of(errorAction(err))),
                     ),
                 ),
-            )
-            .subscribe(action => subject.next(reducer(subject.value, action)));
-        return subject;
-    };
+            ),
+        );
+    return createStore(actionCreators, reducer, initialState(), epic);
 };

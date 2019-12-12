@@ -5,14 +5,14 @@ import {
     createHandler,
 } from 'bassdrum';
 import { Template, State } from './template';
-import { store as accommodationsStore } from '../../stores/accommodations';
-import { map, startWith } from 'rxjs/operators';
+import { accommodationsStore } from '../../stores/accommodations';
+import { tap, map, startWith } from 'rxjs/operators';
 
 interface Props {}
 
 const itemsPerPage = 10;
 
-const ComponentFn: ComponentFunction<Props, State> = ({ props }) => {
+const ComponentFn: ComponentFunction<Props, State> = ({ props, subscribe }) => {
     const [handlePageChange, pageChanges] = createHandler<number>();
     const currentPage = pageChanges.pipe(startWith(0));
 
@@ -20,7 +20,9 @@ const ComponentFn: ComponentFunction<Props, State> = ({ props }) => {
         map(n => ({ offset: n * itemsPerPage, limit: itemsPerPage })),
     );
 
-    const accommodationData = accommodationsStore(params).pipe(
+    subscribe(params.pipe(tap(accommodationsStore.load)));
+
+    const accommodationData = accommodationsStore.state.pipe(
         map(({ isLoading, data }) => ({
             isLoading,
             accommodations: data ? data.accommodations : null,
