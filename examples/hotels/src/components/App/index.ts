@@ -4,9 +4,9 @@ import {
     combine,
     createHandler,
 } from 'bassdrum';
+import { tap, map, startWith } from 'rxjs/operators';
 import { Template, State } from './template';
 import { accommodationsStore } from '../../stores/accommodations';
-import { tap, map, startWith } from 'rxjs/operators';
 
 interface Props {}
 

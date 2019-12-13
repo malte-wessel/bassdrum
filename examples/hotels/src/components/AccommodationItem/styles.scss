@@ -15,3 +15,20 @@
 .right {
     flex-grow: 1;
 }
+
+.headline {
+    display: flex;
+    align-items: flex-start;
+}
+
+.title {
+    flex-grow: 1;
+}
+
+.bookmarkButton {
+    flex-grow: 0;
+}
+
+.subline {
+    
+}

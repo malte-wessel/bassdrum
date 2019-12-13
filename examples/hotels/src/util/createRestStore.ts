@@ -1,6 +1,6 @@
 import { Subject, merge, of, from } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
-import { createStore } from './createStore';
+import { createStore, ActionCreators } from './createStore';
 import { ofType } from './ofType';
 
 export interface RestApi<P, R> {
@@ -18,21 +18,21 @@ export interface RestStoreLoadAction<P> {
     payload: P;
 }
 
-export interface RestStoreStartAction {
+interface RestStoreStartAction {
     type: 'START';
 }
 
-export interface RestStoreSuccessAction<R> {
+interface RestStoreSuccessAction<R> {
     type: 'SUCCESS';
     payload: R;
 }
 
-export interface RestStoreErrorAction {
+interface RestStoreErrorAction {
     type: 'ERROR';
     payload: Error;
 }
 
-export type RestStoreActions<P, R> =
+type RestStoreActions<P, R> =
     | RestStoreLoadAction<P>
     | RestStoreStartAction
     | RestStoreSuccessAction<R>
@@ -111,5 +111,6 @@ export const createRestStore = <P, R>(api: RestApi<P, R>) => {
                 ),
             ),
         );
+
     return createStore(actionCreators, reducer, initialState(), epic);
 };
