@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component supports lifecylce methods 1`] = `
+Object {
+  "mountedEvents": Array [
+    Object {
+      "foo": "bar",
+    },
+  ],
+  "unmountedEvents": Array [],
+  "updateEvents": Array [
+    Object {
+      "foo": "bar",
+    },
+  ],
+}
+`;
+
+exports[`Component supports lifecylce methods 2`] = `
+Object {
+  "mountedEvents": Array [
+    Object {
+      "foo": "bar",
+    },
+  ],
+  "unmountedEvents": Array [],
+  "updateEvents": Array [
+    Object {
+      "foo": "bar",
+    },
+    Object {
+      "foo": "nom",
+    },
+  ],
+}
+`;
+
+exports[`Component supports lifecylce methods 3`] = `
+Object {
+  "mountedEvents": Array [
+    Object {
+      "foo": "bar",
+    },
+  ],
+  "unmountedEvents": Array [
+    Object {
+      "foo": "nom",
+    },
+  ],
+  "updateEvents": Array [
+    Object {
+      "foo": "bar",
+    },
+    Object {
+      "foo": "nom",
+    },
+  ],
+}
+`;
