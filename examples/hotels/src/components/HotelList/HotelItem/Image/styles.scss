@@ -1,7 +1,14 @@
 @import 'styles/config';
 
-.image {
-    height: auto;
+.container {
+    display: block;
+    background-color: $color-juri-light;
     width: 200px;
+    height: 200px;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
     display: block;
 }

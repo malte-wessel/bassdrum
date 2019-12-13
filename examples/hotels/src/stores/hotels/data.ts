@@ -4,7 +4,7 @@ export const data = [
         name: 'Motel 6 San Francisco',
         type: 'Motel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/73/87/73878_v4.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/73/87/73878_v4.jpeg',
         rating: 1,
         reviewCount: 141,
         category: 2,
@@ -15,7 +15,7 @@ export const data = [
         name: 'Holiday Inn Express & Suites San Francisco Fishermans Wharf',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/56/23/56238_v4.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/56/23/56238_v4.jpeg',
         rating: 4,
         reviewCount: 4734,
         category: 3,
@@ -26,7 +26,7 @@ export const data = [
         name: 'Parc 55 San Francisco a Hilton Hotel',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/66/84/66840_v12.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/66/84/66840_v12.jpeg',
         rating: 4,
         reviewCount: 16917,
         category: 4,
@@ -37,7 +37,7 @@ export const data = [
         name: 'Motel Capri',
         type: 'Motel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/12/11/1211622_v5.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/12/11/1211622_v5.jpeg',
         rating: 2,
         reviewCount: 3070,
         category: 5,
@@ -48,7 +48,7 @@ export const data = [
         name: 'InterContinental San Francisco',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/35/72/357256_v7.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/35/72/357256_v7.jpeg',
         rating: 5,
         reviewCount: 4446,
         category: 4,
@@ -59,7 +59,7 @@ export const data = [
         name: 'Argonaut Hotel',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/80/19/8019_v10.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/80/19/8019_v10.jpeg',
         rating: 5,
         reviewCount: 17610,
         category: 4,
@@ -70,7 +70,7 @@ export const data = [
         name: 'Fairmont San Francisco',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/79/90/7990_v14.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/79/90/7990_v14.jpeg',
         rating: 5,
         reviewCount: 7708,
         category: 5,
@@ -81,7 +81,7 @@ export const data = [
         name: 'Travelodge San Francisco Central',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/77/98/77987_v7.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/77/98/77987_v7.jpeg',
         rating: 1,
         reviewCount: 3711,
         category: 2,
@@ -92,7 +92,7 @@ export const data = [
         name: 'The Pickwick Hotel San Francisco',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/80/68/8068_v8.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/80/68/8068_v8.jpeg',
         rating: 2,
         reviewCount: 3212,
         category: 4,
@@ -103,7 +103,7 @@ export const data = [
         name: 'Hotel Nikko San Francisco',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/80/51/8051_v10.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/80/51/8051_v10.jpeg',
         rating: 5,
         reviewCount: 11804,
         category: 4,
@@ -114,7 +114,7 @@ export const data = [
         name: 'Omni San Francisco Hotel',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/80/02/8002_v5.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/80/02/8002_v5.jpeg',
         rating: 5,
         reviewCount: 4868,
         category: 4,
@@ -125,7 +125,7 @@ export const data = [
         name: 'Hotel Beresford',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/63/89/63895_v4.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/63/89/63895_v4.jpeg',
         rating: 2,
         reviewCount: 7021,
         category: 2,
@@ -136,7 +136,7 @@ export const data = [
         name: 'Hotel Vertigo',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/80/75/8075_v6.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/80/75/8075_v6.jpeg',
         rating: 3,
         reviewCount: 2992,
         category: 3,
@@ -147,7 +147,7 @@ export const data = [
         name: 'Hotel Union Square',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/80/70/8070_v4.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/80/70/8070_v4.jpeg',
         rating: 3,
         reviewCount: 4040,
         category: 3,
@@ -158,7 +158,7 @@ export const data = [
         name: 'Hyatt Regency San Francisco',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/79/97/7997_v6.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/79/97/7997_v6.jpeg',
         rating: 5,
         reviewCount: 7599,
         category: 4,
@@ -169,7 +169,7 @@ export const data = [
         name: 'Holiday Inn San Francisco-Golden Gateway',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/61/75/61755_v8.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/61/75/61755_v8.jpeg',
         rating: 3,
         reviewCount: 3749,
         category: 4,
@@ -180,7 +180,7 @@ export const data = [
         name: 'Cow Hollow Motor Inn',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/98/29/982929_v1.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/98/29/982929_v1.jpeg',
         rating: 4,
         reviewCount: 1158,
         category: 2,
@@ -191,7 +191,7 @@ export const data = [
         name: 'Geary Parkway',
         type: 'Motel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/12/60/1260277_v5.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/12/60/1260277_v5.jpeg',
         rating: 3,
         reviewCount: 1511,
         category: 0,
@@ -202,7 +202,7 @@ export const data = [
         name: 'Comfort Inn By The Bay San Francisco',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/79/83/7983_v4.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/79/83/7983_v4.jpeg',
         rating: 3,
         reviewCount: 4655,
         category: 2,
@@ -213,7 +213,7 @@ export const data = [
         name: 'Phoenix Hotel',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/80/58/8058_v2.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/80/58/8058_v2.jpeg',
         rating: 4,
         reviewCount: 1489,
         category: 3,
@@ -224,7 +224,7 @@ export const data = [
         name: 'Villa Florence',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/80/72/8072_v8.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/80/72/8072_v8.jpeg',
         rating: 3,
         reviewCount: 4268,
         category: 4,
@@ -235,7 +235,7 @@ export const data = [
         name: 'Buena Vista Motor Inn',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/59/53/59531_v3.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/59/53/59531_v3.jpeg',
         rating: 2,
         reviewCount: 3157,
         category: 2,
@@ -246,7 +246,7 @@ export const data = [
         name: 'Grand Hyatt San Francisco',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/66/83/66830_v8.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/66/83/66830_v8.jpeg',
         rating: 5,
         reviewCount: 6336,
         category: 4,
@@ -257,7 +257,7 @@ export const data = [
         name: 'Staypineapple, An Elegant Hotel, Union Square',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/57/59/57592_v6.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/57/59/57592_v6.jpeg',
         rating: 4,
         reviewCount: 1633,
         category: 4,
@@ -268,7 +268,7 @@ export const data = [
         name: 'Hotel The Club Donatello',
         type: 'Hotel',
         image:
-            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,f_auto,h_310,q_auto,w_551/itemimages/79/36/79366_v6.jpeg',
+            'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_225,q_auto,w_225/itemimages/79/36/79366_v6.jpeg',
         rating: 5,
         reviewCount: 4363,
         category: 4,

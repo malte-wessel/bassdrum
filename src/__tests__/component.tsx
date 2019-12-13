@@ -1,5 +1,5 @@
 import { h, render, Ref } from 'preact';
-import { tap, delay } from 'rxjs/operators';
+import { tap, delay, filter } from 'rxjs/operators';
 import {
     createComponent,
     ComponentFunction,
@@ -53,6 +53,7 @@ describe('Component', () => {
             const [ref, elementStream] = createRef<HTMLDivElement>();
             subscribe(
                 elementStream.pipe(
+                    filter(Boolean),
                     tap(el => {
                         expect(el).toBeInstanceOf(HTMLDivElement);
                         done();

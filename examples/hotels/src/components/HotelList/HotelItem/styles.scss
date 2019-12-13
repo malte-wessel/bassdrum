@@ -1,10 +1,16 @@
 @import 'styles/config';
 
 .container {
+    opacity: 0.5;
+    transition: opacity 200ms;
     display: flex;
     background-color: $color-white;
     padding: $size-sm;
     box-shadow: 0 1px 4px rgba(41, 51, 57, 0.2);
+
+    &.isVisible {
+        opacity: 1;
+    }
 }
 
 .left {
@@ -30,5 +36,4 @@
 }
 
 .subline {
-    
 }

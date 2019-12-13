@@ -1,12 +1,10 @@
 import { RefCallback } from 'preact';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 export const createRef = <T extends HTMLElement>() => {
-    const subject = new Subject<T>();
+    const subject = new BehaviorSubject<T | null>(null);
     const ref: RefCallback<T> = el => {
-        if (el) {
-            subject.next(el as T);
-        }
+        subject.next(el);
     };
     return [ref, subject] as const;
 };
