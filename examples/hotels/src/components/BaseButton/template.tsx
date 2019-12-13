@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import { h, ComponentChild, JSX } from 'preact';
 import { ComponentTemplate } from 'bassdrum';
-import BaseButton from '../BaseButton';
 import styles from './styles.scss';
 
 export type State = {
@@ -9,6 +8,12 @@ export type State = {
     className?: string;
 } & JSX.HTMLAttributes<HTMLButtonElement>;
 
-export const Template: ComponentTemplate<State> = ({ className, ...attrs }) => (
-    <BaseButton className={cn(styles.button, className)} {...attrs} />
+export const Template: ComponentTemplate<State> = ({
+    className,
+    children,
+    ...attrs
+}) => (
+    <button type="button" className={cn(styles.button, className)} {...attrs}>
+        {children}
+    </button>
 );

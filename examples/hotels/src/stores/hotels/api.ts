@@ -12,7 +12,7 @@ const get = ({ limit, offset }: HotelParams): Promise<HotelData> =>
                     count: data.length,
                     hotels: data.slice(offset, offset + limit),
                 }),
-            random(1000),
+            random(500, 1000),
         );
     });
 

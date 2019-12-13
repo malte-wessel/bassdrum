@@ -1,6 +1,7 @@
 import { h } from 'preact';
 import { ComponentTemplate, Handler, MouseEvent } from 'bassdrum';
-// import styles from './styles.scss';
+import Button from '../../../Button';
+import styles from './styles.scss';
 
 export interface State {
     n: number;
@@ -13,7 +14,7 @@ export const Template: ComponentTemplate<State> = ({
     n,
     disabled,
 }) => (
-    <button type="button" disabled={disabled} onClick={handleClick}>
+    <Button disabled={disabled} onClick={handleClick} className={styles.button}>
         {n}
-    </button>
+    </Button>
 );

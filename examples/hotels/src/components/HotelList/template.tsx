@@ -1,10 +1,12 @@
 import { h } from 'preact';
 import { ComponentTemplate, Handler } from 'bassdrum';
 import cn from 'classnames';
-import styles from './styles.scss';
+
 import { Hotel } from '../../stores/hotels';
-import HotelItem from '../HotelItem';
+
+import HotelItem from './HotelItem';
 import Pagination from './Pagination';
+import styles from './styles.scss';
 
 export interface State {
     hotels: Hotel[] | null;
@@ -23,7 +25,13 @@ export const Template: ComponentTemplate<State> = ({
     numberOfPages,
     isLoading,
 }) => (
-    <main className={cn(styles.container, className)}>
+    <main
+        className={cn(
+            styles.container,
+            isLoading && styles.isLoading,
+            className,
+        )}
+    >
         {hotels && (
             <ul className={styles.list}>
                 {hotels.map(hotel => (

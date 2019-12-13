@@ -1,11 +1,13 @@
 import { h } from 'preact';
 import { ComponentTemplate } from 'bassdrum';
 import styles from './styles.scss';
-import { Hotel } from '../../stores/hotels';
+
+import { Hotel } from '../../../stores/hotels';
+import BookmarkButton from '../../BookmarkButton';
+
 import Image from './Image';
 import Title from './Title';
 import Category from './Category';
-import BookmarkButton from '../BookmarkButton';
 
 export interface State {
     hotel: Hotel;
@@ -25,7 +27,7 @@ export const Template: ComponentTemplate<State> = ({ hotel }) => (
                 />
             </div>
             <div>
-                <Category category={hotel.category} />
+                <Category category={hotel.category} type={hotel.type} />
             </div>
         </div>
     </article>

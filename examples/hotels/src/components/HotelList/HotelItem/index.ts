@@ -1,6 +1,6 @@
 import { createComponent, ComponentFunction } from 'bassdrum';
+import { Hotel } from '../../../stores/hotels';
 import { Template, State } from './template';
-import { Hotel } from '../../stores/hotels';
 
 interface Props {
     hotel: Hotel;

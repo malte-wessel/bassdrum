@@ -10,6 +10,10 @@
     margin: 0;
 }
 
+.isLoading {
+    opacity: 0.5;
+}
+
 .item + .item {
     margin-top: $size-base;
 }

@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import { h } from 'preact';
 import { ComponentTemplate } from 'bassdrum';
+
 import styles from './styles.scss';
 
 export interface State {

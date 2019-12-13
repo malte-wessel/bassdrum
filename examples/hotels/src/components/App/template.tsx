@@ -21,7 +21,12 @@ export const Template: ComponentTemplate<State> = ({
     isLoading,
 }) => (
     <div>
-        <Header label="hotels" />
+        <Header label="🏨 Awesome Hotels" />
+        <h2 className={styles.claim}>
+            {isLoading
+                ? '⌛ Loading awesome hotels...'
+                : 'Find awesome hotels in San Francisco!'}
+        </h2>
         <HotelList
             className={styles.list}
             hotels={hotels}

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { h } from 'preact';
 import { ComponentTemplate, Handler, MouseEvent } from 'bassdrum';
-import Button from '../Button';
+import BaseButton from '../BaseButton';
 import styles from './styles.scss';
 import { Bookmark } from '../../stores/bookmarks';
 
@@ -16,7 +16,7 @@ export const Template: ComponentTemplate<State> = ({
     handleToggle,
     bookmark,
 }) => (
-    <Button
+    <BaseButton
         className={cn(styles.button, className)}
         onClick={handleToggle}
         title={
@@ -28,5 +28,5 @@ export const Template: ComponentTemplate<State> = ({
         }
     >
         {bookmark ? '❤️' : '🖤'}
-    </Button>
+    </BaseButton>
 );

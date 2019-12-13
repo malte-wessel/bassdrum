@@ -1,9 +1,5 @@
 @import 'styles/config';
 
-.container {
-    padding: $size-base;
-    background-color: $color-white;
-    text-align: center;
-    font-size: $font-size-xlg;
-    font-weight: $font-weight-black;
+.button + .button {
+    margin-left: $size-xs;
 }

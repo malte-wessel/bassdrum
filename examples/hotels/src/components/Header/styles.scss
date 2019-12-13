@@ -1,9 +1,10 @@
 @import 'styles/config';
 
 .container {
-    padding: $size-base;
+    padding: $size-lg;
     background-color: $color-white;
     text-align: center;
     font-size: $font-size-xlg;
     font-weight: $font-weight-black;
+    border-bottom: 1px solid $color-juri-very-light;
 }

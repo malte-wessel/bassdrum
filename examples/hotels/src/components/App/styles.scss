@@ -4,3 +4,10 @@
     margin: $size-lg auto;
     max-width: 800px;
 }
+
+.claim {
+    text-align: center;
+    font-size: $font-size-lg;
+    font-weight: normal;
+    margin: ($size-xxlg * 2) 0;
+}
