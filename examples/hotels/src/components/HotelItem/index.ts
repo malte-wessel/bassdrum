@@ -1,9 +1,9 @@
 import { createComponent, ComponentFunction } from 'bassdrum';
 import { Template, State } from './template';
-import { Accommodation } from '../../stores/accommodations';
+import { Hotel } from '../../stores/hotels';
 
 interface Props {
-    accommodation: Accommodation;
+    hotel: Hotel;
 }
 
 const ComponentFn: ComponentFunction<Props, State> = ({ props }) => props;

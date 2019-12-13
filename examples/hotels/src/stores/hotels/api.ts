@@ -1,11 +1,8 @@
 import { data } from './data';
 import random from 'lodash/random';
-import { AccommodationParams, AccommodationData } from './';
+import { HotelParams, HotelData } from './';
 
-const get = ({
-    limit,
-    offset,
-}: AccommodationParams): Promise<AccommodationData> =>
+const get = ({ limit, offset }: HotelParams): Promise<HotelData> =>
     new Promise(resolve => {
         setTimeout(
             () =>
@@ -13,7 +10,7 @@ const get = ({
                     limit,
                     offset,
                     count: data.length,
-                    accommodations: data.slice(offset, offset + limit),
+                    hotels: data.slice(offset, offset + limit),
                 }),
             random(1000),
         );

@@ -12,33 +12,26 @@ import { mapToLatestFrom } from '../../util/mapToLatestFrom';
 import { Template, State } from './template';
 
 export interface Props {
-    accommodationId: number;
+    hotelId: number;
     className?: string;
 }
 
-const bookmarksbyAccommodationId = bookmarksStore.state.pipe(
-    pluck('byAccommodationId'),
+const bookmarksbyHotelId = bookmarksStore.state.pipe(
+    pluck('byHotelId'),
     distinctUntilChanged(),
 );
 
 const ComponentFn: ComponentFunction<Props, State> = ({ props, subscribe }) => {
-    const accommodationId = props.pipe(
-        pluck('accommodationId'),
-        distinctUntilChanged(),
-    );
+    const hotelId = props.pipe(pluck('hotelId'), distinctUntilChanged());
 
-    const bookmark = combineLatest(
-        accommodationId,
-        bookmarksbyAccommodationId,
-    ).pipe(map(([id, byId]) => byId[id]));
+    const bookmark = combineLatest(hotelId, bookmarksbyHotelId).pipe(
+        map(([id, byId]) => byId[id]),
+    );
 
     const [handleToggle, toggles] = createHandler<MouseEvent>();
 
     subscribe(
-        toggles.pipe(
-            mapToLatestFrom(accommodationId),
-            tap(bookmarksStore.toggle),
-        ),
+        toggles.pipe(mapToLatestFrom(hotelId), tap(bookmarksStore.toggle)),
     );
 
     return combine(props, {

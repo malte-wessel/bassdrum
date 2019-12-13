@@ -2,12 +2,12 @@ import { h } from 'preact';
 import { ComponentTemplate, Handler } from 'bassdrum';
 import cn from 'classnames';
 import styles from './styles.scss';
-import { Accommodation } from '../../stores/accommodations';
-import AccommodationItem from '../AccommodationItem';
+import { Hotel } from '../../stores/hotels';
+import HotelItem from '../HotelItem';
 import Pagination from './Pagination';
 
 export interface State {
-    accommodations: Accommodation[] | null;
+    hotels: Hotel[] | null;
     handlePageChange: Handler<number>;
     currentPage: number;
     numberOfPages: number;
@@ -16,7 +16,7 @@ export interface State {
 }
 
 export const Template: ComponentTemplate<State> = ({
-    accommodations,
+    hotels,
     className,
     handlePageChange,
     currentPage,
@@ -24,11 +24,11 @@ export const Template: ComponentTemplate<State> = ({
     isLoading,
 }) => (
     <main className={cn(styles.container, className)}>
-        {accommodations && (
+        {hotels && (
             <ul className={styles.list}>
-                {accommodations.map(accommodation => (
-                    <li className={styles.item} key={accommodation.id}>
-                        <AccommodationItem accommodation={accommodation} />
+                {hotels.map(hotel => (
+                    <li className={styles.item} key={hotel.id}>
+                        <HotelItem hotel={hotel} />
                     </li>
                 ))}
             </ul>

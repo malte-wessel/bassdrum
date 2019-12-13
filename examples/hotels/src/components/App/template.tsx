@@ -1,30 +1,30 @@
 import { h } from 'preact';
 import { ComponentTemplate, Handler } from 'bassdrum';
 import Header from '../Header';
-import AccommodationList from '../AccommodationList';
-import { Accommodation } from '../../stores/accommodations';
+import HotelList from '../HotelList';
+import { Hotel } from '../../stores/hotels';
 import styles from './styles.scss';
 
 export interface State {
     isLoading: boolean;
-    accommodations: Accommodation[] | null;
+    hotels: Hotel[] | null;
     handlePageChange: Handler<number>;
     currentPage: number;
     numberOfPages: number;
 }
 
 export const Template: ComponentTemplate<State> = ({
-    accommodations,
+    hotels,
     handlePageChange,
     currentPage,
     numberOfPages,
     isLoading,
 }) => (
     <div>
-        <Header label="accommodations" />
-        <AccommodationList
+        <Header label="hotels" />
+        <HotelList
             className={styles.list}
-            accommodations={accommodations}
+            hotels={hotels}
             handlePageChange={handlePageChange}
             currentPage={currentPage}
             numberOfPages={numberOfPages}

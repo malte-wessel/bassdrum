@@ -6,7 +6,7 @@ import {
 } from 'bassdrum';
 import { tap, map, startWith } from 'rxjs/operators';
 import { Template, State } from './template';
-import { accommodationsStore } from '../../stores/accommodations';
+import { hotelsStore } from '../../stores/hotels';
 
 interface Props {}
 
@@ -20,17 +20,17 @@ const ComponentFn: ComponentFunction<Props, State> = ({ props, subscribe }) => {
         map(n => ({ offset: n * itemsPerPage, limit: itemsPerPage })),
     );
 
-    subscribe(params.pipe(tap(accommodationsStore.load)));
+    subscribe(params.pipe(tap(hotelsStore.load)));
 
-    const accommodationData = accommodationsStore.state.pipe(
+    const hotelData = hotelsStore.state.pipe(
         map(({ isLoading, data }) => ({
             isLoading,
-            accommodations: data ? data.accommodations : null,
+            hotels: data ? data.hotels : null,
             numberOfPages: data ? Math.ceil(data.count / itemsPerPage) : 0,
         })),
     );
 
-    return combine(props, accommodationData, { currentPage, handlePageChange });
+    return combine(props, hotelData, { currentPage, handlePageChange });
 };
 
 export default createComponent(ComponentFn, Template);

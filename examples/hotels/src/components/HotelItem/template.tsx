@@ -1,31 +1,31 @@
 import { h } from 'preact';
 import { ComponentTemplate } from 'bassdrum';
 import styles from './styles.scss';
-import { Accommodation } from '../../stores/accommodations';
+import { Hotel } from '../../stores/hotels';
 import Image from './Image';
 import Title from './Title';
 import Category from './Category';
 import BookmarkButton from '../BookmarkButton';
 
 export interface State {
-    accommodation: Accommodation;
+    hotel: Hotel;
 }
 
-export const Template: ComponentTemplate<State> = ({ accommodation }) => (
+export const Template: ComponentTemplate<State> = ({ hotel }) => (
     <article className={styles.container}>
         <div className={styles.left}>
-            <Image url={accommodation.image} />
+            <Image url={hotel.image} />
         </div>
         <div className={styles.right}>
             <div className={styles.headline}>
-                <Title title={accommodation.name} className={styles.title} />
+                <Title title={hotel.name} className={styles.title} />
                 <BookmarkButton
-                    accommodationId={accommodation.id}
+                    hotelId={hotel.id}
                     className={styles.bookmarkButton}
                 />
             </div>
-            <div className={styles.subline}>
-                <Category category={accommodation.category} />
+            <div>
+                <Category category={hotel.category} />
             </div>
         </div>
     </article>

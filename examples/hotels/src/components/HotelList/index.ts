@@ -1,9 +1,9 @@
 import { createComponent, ComponentFunction, Handler } from 'bassdrum';
 import { Template, State } from './template';
-import { Accommodation } from '../../stores/accommodations';
+import { Hotel } from '../../stores/hotels';
 
 interface Props {
-    accommodations: Accommodation[] | null;
+    hotels: Hotel[] | null;
     handlePageChange: Handler<number>;
     currentPage: number;
     numberOfPages: number;

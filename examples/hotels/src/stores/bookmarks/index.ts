@@ -6,12 +6,12 @@ import { ofType } from '../../util/ofType';
 import { map, withLatestFrom, pluck } from 'rxjs/operators';
 
 export interface Bookmark {
-    accommodationId: number;
+    hotelId: number;
     createdAt: string;
 }
 
 export interface BookmarksStoreState {
-    byAccommodationId: Dictionary<Bookmark>;
+    byHotelId: Dictionary<Bookmark>;
 }
 
 interface BookmarksStoreAddAction {
@@ -34,50 +34,47 @@ type BookmarksStoreActions =
     | BookmarksStoreRemoveAction
     | BookmarksStoreToggleAction;
 
-const add = (accommodationId: number): BookmarksStoreAddAction => ({
+const add = (hotelId: number): BookmarksStoreAddAction => ({
     type: 'ADD',
-    payload: accommodationId,
+    payload: hotelId,
 });
 
-const remove = (accommodationId: number): BookmarksStoreRemoveAction => ({
+const remove = (hotelId: number): BookmarksStoreRemoveAction => ({
     type: 'REMOVE',
-    payload: accommodationId,
+    payload: hotelId,
 });
 
-const toggle = (accommodationId: number): BookmarksStoreToggleAction => ({
+const toggle = (hotelId: number): BookmarksStoreToggleAction => ({
     type: 'TOGGLE',
-    payload: accommodationId,
+    payload: hotelId,
 });
 
-const createBookmark = (accommodationId: number): Bookmark => ({
-    accommodationId,
+const createBookmark = (hotelId: number): Bookmark => ({
+    hotelId,
     createdAt: new Date().toISOString(),
 });
 
 const initialState = (): BookmarksStoreState => ({
-    byAccommodationId: {},
+    byHotelId: {},
 });
 
 const reducer = (state: BookmarksStoreState, action: BookmarksStoreActions) => {
     switch (action.type) {
         case 'ADD': {
-            const accommodationId = action.payload;
+            const hotelId = action.payload;
             return {
                 ...state,
-                byAccommodationId: {
-                    ...state.byAccommodationId,
-                    [accommodationId]: createBookmark(accommodationId),
+                byHotelId: {
+                    ...state.byHotelId,
+                    [hotelId]: createBookmark(hotelId),
                 },
             };
         }
         case 'REMOVE': {
-            const accommodationId = action.payload;
+            const hotelId = action.payload;
             return {
                 ...state,
-                byAccommodationId: omit(
-                    state.byAccommodationId,
-                    accommodationId,
-                ),
+                byHotelId: omit(state.byHotelId, hotelId),
             };
         }
         default: {
@@ -94,11 +91,11 @@ const epic = (
     action: Subject<BookmarksStoreActions>,
     state: BehaviorSubject<BookmarksStoreState>,
 ) => {
-    const byAccommodationId = state.pipe(pluck('byAccommodationId'));
+    const byHotelId = state.pipe(pluck('byHotelId'));
     return action.pipe(
         ofType('TOGGLE'),
         pluck('payload'),
-        withLatestFrom(byAccommodationId),
+        withLatestFrom(byHotelId),
         map(([id, byId]) => (byId[id] ? remove(id) : add(id))),
     );
 };

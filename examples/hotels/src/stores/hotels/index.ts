@@ -1,7 +1,7 @@
 import { createRestStore } from '../../util/createRestStore';
 import { api } from './api';
 
-export interface Accommodation {
+export interface Hotel {
     id: number;
     name: string;
     type: string;
@@ -12,19 +12,16 @@ export interface Accommodation {
     price: number;
 }
 
-export interface AccommodationParams {
+export interface HotelParams {
     limit: number;
     offset: number;
 }
 
-export interface AccommodationData {
+export interface HotelData {
     limit: number;
     offset: number;
     count: number;
-    accommodations: Accommodation[];
+    hotels: Hotel[];
 }
 
-export const accommodationsStore = createRestStore<
-    AccommodationParams,
-    AccommodationData
->(api);
+export const hotelsStore = createRestStore<HotelParams, HotelData>(api);
