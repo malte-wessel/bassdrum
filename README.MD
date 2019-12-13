@@ -65,7 +65,7 @@ import {
     combine,
     createRef,
     createHandler,
-    MouseEventHandler,
+    Handler,
     MouseEvent,
 } from 'bassdrum';
 
@@ -77,7 +77,7 @@ interface State {
     name: string;
     ref: Ref<HTMLDivElement>;
     width: number;
-    handleClick: MouseEventHandler<HTMLButtonElement>;
+    handleClick: Handler<MouseEvent<HTMLButtonElement>>;
     toggle: boolean;
 }
 
@@ -93,9 +93,8 @@ const ComponentFn: ComponentFunction<Props, State> = ({ props, updates }) => {
     );
 
     const width = combineLatest(el, updates).pipe(
-        map(([el]) => el.offsetWidth),
+        map(([el]) => (el ? el.offsetWidth : 0)),
         distinctUntilChanged(),
-        startWith(0),
     );
 
     return combine(props, {
