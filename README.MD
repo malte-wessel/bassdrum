@@ -1,4 +1,4 @@
-# bassdrum
+# 🥁 bassdrum
 
 bassdrum is a thin wrapper around preact that let's you create reactive type safe components with rxjs.
 
