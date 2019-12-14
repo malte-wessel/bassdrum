@@ -1,13 +1,14 @@
 {
+    "include": ["src", "types", "test"],
     "compilerOptions": {
         "baseUrl": "./",
-        "target": "es2015",
-        "outDir": "build",
-        "rootDir": "src",
+        "target": "es5",
+        "rootDir": "./",
         "moduleResolution": "node",
         "module": "esnext",
         "strict": true,
         "declaration": true,
+        "declarationMap": true,
         "esModuleInterop": true,
         "jsx": "react",
         "jsxFactory": "h",
@@ -20,8 +21,5 @@
         "listFiles": false,
         "pretty": true,
         "lib": ["es2017", "dom"]
-    },
-    "include": ["src/**/*.ts", "src/**/*.tsx"],
-    "exclude": ["node_modules/**"],
-    "compileOnSave": false
+    }
 }

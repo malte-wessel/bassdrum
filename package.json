@@ -1,12 +1,19 @@
 {
     "name": "bassdrum",
     "version": "1.1.0",
-    "main": "./build/index.js",
+    "main": "dist/index.js",
+    "module": "dist/bassdrum.esm.js",
+    "typings": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "license": "MIT",
     "author": "Malte Wessel",
     "scripts": {
-        "build": "yarn test && tsc -b",
-        "test": "jest"
+        "start": "tsdx watch",
+        "build": "tsdx build",
+        "test": "tsdx test --env=jsdom",
+        "lint": "tsdx lint src test"
     },
     "repository": {
         "type": "git",
@@ -19,23 +26,27 @@
     ],
     "devDependencies": {
         "@types/jest": "^24.0.23",
-        "@typescript-eslint/eslint-plugin": "^2.7.0",
-        "@typescript-eslint/parser": "^2.7.0",
-        "eslint": "^6.6.0",
-        "eslint-config-prettier": "^6.5.0",
+        "@typescript-eslint/eslint-plugin": "^2.11.0",
+        "@typescript-eslint/parser": "^2.11.0",
+        "eslint": "^6.7.2",
+        "eslint-config-prettier": "^6.7.0",
         "eslint-plugin-prettier": "^3.1.1",
-        "eslint-plugin-react": "^7.16.0",
-        "jest": "^24.9.0",
+        "eslint-plugin-react": "^7.17.0",
+        "husky": "^3.1.0",
         "preact": "^10.0.5",
         "prettier": "^1.19.1",
         "rxjs": "^6.5.3",
-        "ts-jest": "^24.1.0",
-        "tslint": "^5.20.1",
-        "tslint-config-prettier": "^1.18.0",
+        "tsdx": "^0.11.0",
+        "tslib": "^1.10.0",
         "typescript": "^3.7.2"
     },
     "peerDependencies": {
         "preact": "^10.0.5",
         "rxjs": "^6.5.3"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "tsdx lint"
+        }
     }
 }
