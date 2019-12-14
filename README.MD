@@ -95,7 +95,7 @@ Let's have a closer look at the component function. This function is called once
 
 #### Transforming data
 
-To transform the data that you receive from the `props` stream, you can use the transformation operators from `rxjs`. In the following example we use the `pluck` operator to get a stream of `items` from the `props` and the `map` operator to obtain the length of the `items`.
+To transform the data that you receive from the `props` stream, you can use the transformation operators from `rxjs`. In the following example we use the `pluck` operator to get a stream of `items` from the `props` and the `map` operator to map the `items` to its length.
 
 ```tsx
 interface Props {
@@ -115,7 +115,7 @@ const ComponentFn: ComponentFunction<Props, State> = ({ props }) => {
 };
 ```
 
-To combine the `props` stream and your transformed streams use the bassdrum `combine` method. This method can merge the data from streams and plain objects that hold primitive values or streams. In the example above `combine` will emit an object that looks like this:
+To combine the `props` stream and your transformed streams use the bassdrum `combine` method. This method can merge data from streams and plain objects that hold primitive values or streams. In the example above `combine` will emit an object that looks like this:
 
 ```js
 {
@@ -125,7 +125,7 @@ To combine the `props` stream and your transformed streams use the bassdrum `com
 }
 ```
 
-`combine` emits whenever one of its streams emits. We do a `shallowEqual` compare and only rerender the component if at least one of the values have changed. The component automatically subscribes and unsubscibes from the stream that you return from the component function.
+`combine` emits whenever one of its streams emits. We do a `shallowEqual` compare and only rerender the component if at least one of the values has changed. The component automatically subscribes and unsubscibes from the stream that you return from the component function.
 
 If you derive complex data make sure to use the `rxjs` operator `distinctUntilChanged` to avoid unnecessary rerenders, like in the following example:
 
@@ -156,13 +156,13 @@ const ComponentFn: ComponentFunction<Props, State> = ({
     updates,
     subscribe,
 }) => {
-    // the first value emitted by updates signals the did mount event
+    // the first value emitted by `updates` signals the did mount event
     const mounted = updates.pipe(first());
 
     // skip the mounted event if you only want updates
     const updated = updates.pipe(skip(1));
 
-    // when the component will unmount, the update stream completes
+    // when the component will unmount, the `updates` stream completes
     const unmounted = updates.pipe(last());
 
     subscribe(mounted.pipe(log('component did mount')));
@@ -173,11 +173,11 @@ const ComponentFn: ComponentFunction<Props, State> = ({
 };
 ```
 
-Alright, let's have a look what's happening in this example. We use the `updates` stream to get notified about certain lifecycle events. The `updates` stream emits the current `props`, whenever `componenDidMount` or `componentDidUpdate` is called. When the component is about to get unmounted the `updates` stream completes. We can use the `rxjs` filtering operators to only react to certain events.
+Alright, let's have a look what's happening in this example. We use the `updates` stream to get notified about certain lifecycle events. The `updates` stream emits the current `props` whenever `componenDidMount` or `componentDidUpdate` is called. When the component is about to get unmounted, the `updates` stream completes. We can use the `rxjs` filtering operators to only react to certain events.
 
 The first time `updates` emits the component is mounted. By using the `first` operator we will get a stream that only emits once the component is mounted and attached to the DOM. If you want a stream that only emits when the component has been updated, skip the first emit by using the `skip` operator. To deal with cleaning up use the `last` operator that returns a stream that only emits once the `updates` stream completes.
 
-Let's say you want to notify a parent component about updates of your component. The `updates` stream emits the current value of `props`. Use the `tap` operator to hook into update events and use the data and callbacks passed to your component right there, like in the following example.
+Let's say you want to notify a parent component about updates of your component. The `updates` stream emits the current value of `props`. Use the `tap` operator to hook into update events and use the data and callbacks passed to your component right there:
 
 ```tsx
 const ComponentFn: ComponentFunction<Props, State> = ({
@@ -198,11 +198,11 @@ const ComponentFn: ComponentFunction<Props, State> = ({
 
 #### Subscriptions
 
-In the examples above we were using the `subscribe` function that is passed to your component function. Why is that? The streams that we are creating and not returning or passing to `combine` basically do nothing until you subscribe to them. In `rxjs` you would subscribe to a stream by calling it's `subscribe` method. This method returns an `unsubscribe` function that you need to call once you don't need your stream anymore. bassdrum provides you this util function that takes care of this, so you don't need to take care of that. You can use this function e.g. when you are dealing with side effects that not result in data that you use in your templates.
+In the examples above we were using the `subscribe` function that is passed to your component function. Why is that? The streams that we are creating and not returning or passing to `combine` basically do nothing until you subscribe to them. In `rxjs` you would subscribe to a stream by calling it's `subscribe` method. This method returns an `unsubscribe` function that you need to call once you don't need your stream anymore. bassdrum provides you this util function that takes care of managing those subscriptions, so you don't need to deal with it. You can use this function e.g. when you are dealing with side effects that do not result in data that you use in your template.
 
 ### Working with handlers
 
-Handlers in bassdrum work just like in `preact`. You create a function that you pass to the DOM or a child component. The way how you create them is different though. Since in bassdrum everything is a `rxjs` stream you want a stream of events when your handler is called. For this purpose use `createHandler`.
+Handlers in bassdrum work just like in `preact`. You create a function that you pass to the DOM or a child component. The way how you create them is different though. Since in bassdrum everything is a `rxjs` stream you want a stream of events when your handler is called. For this purpose we use `createHandler`.
 
 The API of `createHandler` is inspired by react hooks. `createHandler` returns a handler function and an `rxjs` stream that emits whenever the handler is called. This way you can easily transform your event stream to data like in the following example.
 
@@ -247,7 +247,7 @@ const Template: ComponentTemplate<State> = ({ handleClick, counter }) => (
 
 When the user presses the button the `clicks` stream emits a click `event`. We use this information to increase the counter. The `counter` stream is derived from those clicks. It starts with a `0` and increases everytime it receives an event.
 
-Why do we need to use the `startsWith` operator here? bassdrum expects the stream you return from the component function to immediately emit once your component is created. `combine` won't emit unless every input stream has emitted. At the time the component is created `clicks` has never emitted. Thus we need `startWith` to immediately emit on component creation time.
+Why do we need to use the `startsWith` operator here? bassdrum expects the stream you return from the component function to immediately emit once your component is created. `combine` won't emit until every input stream has emitted. At the time the component is created `clicks` has never emitted. Thus we need `startWith` to immediately emit on component creation time.
 
 ### Working with refs
 
@@ -274,9 +274,9 @@ Look ma, this is an element null
 Look ma, this is an element [Element]
 ```
 
-When the component gets unmounted, you will see another `Look ma, this is an element null` log message. This is because the element is removed from the DOM and now you can do some clean up logic.
+When the component gets unmounted you will see another `Look ma, this is an element null` log message. This is because the element is removed from the DOM and preact calls the handler with `null`. Now it's up to you to do some clean up logic.
 
-Also keep in mind that `el` emits at the time the DOM element is created. This happens even before the component is considered mounted. That's why most of the time you want to combine it with the `updates` stream like in the following example.
+Also keep in mind that `el` emits at the time the DOM element is created. This happens even before the component is considered to be mounted. That's why most of the time you want to combine it with the `updates` stream like in the following example.
 
 ```tsx
 const ComponentFn: ComponentFunction<Props, State> = ({ props, updates }) => {
@@ -294,7 +294,7 @@ const ComponentFn: ComponentFunction<Props, State> = ({ props, updates }) => {
 };
 ```
 
-`combineLatest(el, updates)` will emit once both `el` and `updates` have emitted. At that time your component is mounted and you can interact with your `el`, like deriving data like the `offsetWith` from it. Keep in mind to use `startWith(0)` for your inital emit.
+`combineLatest(el, updates)` will emit once both `el` and `updates` have emitted. At that time your component is mounted and you can interact with your `el`, e.g. gathering data like the `offsetWith`. Keep in mind to use `startWith(0)` for your inital emit.
 
 ## Advanced example
 
