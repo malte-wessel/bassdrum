@@ -117,7 +117,7 @@ const ComponentFn: ComponentFunction<Props, State> = ({ props }) => {
 
 To combine the `props` stream and your transformed streams use the bassdrum `combine` method. This method can merge the data from streams and plain objects that hold primitive values or streams. In the example above `combine` will emit an object that looks like this:
 
-```json
+```js
 {
     items: [{...}],
     count: 43,
