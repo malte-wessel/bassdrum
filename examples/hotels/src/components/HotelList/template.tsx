@@ -46,6 +46,6 @@ export const Template: ComponentTemplate<State> = ({
             currentPage={currentPage}
             numberOfPages={numberOfPages}
             disabled={isLoading}
-        ></Pagination>
+        />
     </main>
 );

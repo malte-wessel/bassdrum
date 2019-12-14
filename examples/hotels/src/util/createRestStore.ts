@@ -1,6 +1,6 @@
 import { Subject, merge, of, from } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
-import { createStore, ActionCreators } from './createStore';
+import { createStore } from './createStore';
 import { ofType } from './ofType';
 
 export interface RestApi<P, R> {

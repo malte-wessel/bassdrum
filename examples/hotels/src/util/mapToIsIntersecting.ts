@@ -15,7 +15,7 @@ export const mapToIsIntersecting = <E extends HTMLElement>(
                       entries => observer.next(entries[0].isIntersecting),
                       intersectionOptions,
                   );
-                  console.log('observe', el);
+
                   intersectionObserver.observe(el);
                   return () => intersectionObserver.unobserve(el);
               })
