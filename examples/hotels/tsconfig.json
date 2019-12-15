@@ -16,9 +16,6 @@
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
         "pretty": true,
-        "paths": {
-            "bassdrum": ["../../build"]
-        },
         "lib": ["es2017", "dom"]
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"],

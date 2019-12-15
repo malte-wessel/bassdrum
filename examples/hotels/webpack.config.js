@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
     entry: './src/index.tsx',
     module: {
@@ -41,9 +39,6 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'],
-        alias: {
-            bassdrum: path.resolve(__dirname, '../../build'),
-        },
     },
     output: {
         path: __dirname + '/public',
