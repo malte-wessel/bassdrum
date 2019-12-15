@@ -1,3 +1,9 @@
 node_modules
-build
-yarn-error.log
+*.log
+.DS_Store
+.cache
+.rts2_cache_cjs
+.rts2_cache_esm
+.rts2_cache_umd
+.rts2_cache_system
+dist

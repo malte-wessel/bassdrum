@@ -4,9 +4,9 @@ import {
     createComponent,
     ComponentFunction,
     ComponentTemplate,
-} from '../component';
-import { combine } from '../util/combine';
-import { createRef } from '../util/createRef';
+} from '../src/component';
+import { combine } from '../src/util/combine';
+import { createRef } from '../src/util/createRef';
 
 describe('Component', () => {
     it('renders a component', () => {
@@ -117,6 +117,5 @@ describe('Component', () => {
             updateEvents,
             unmountedEvents,
         }).toMatchSnapshot();
-        console.log();
     });
 });

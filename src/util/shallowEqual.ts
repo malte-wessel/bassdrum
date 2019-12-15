@@ -5,6 +5,7 @@ const is = (x: any, y: any) => {
     if (x === y) {
         return x !== 0 || y !== 0 || 1 / x === 1 / y;
     } else {
+        // eslint-disable-next-line no-self-compare
         return x !== x && y !== y;
     }
 };
@@ -23,6 +24,7 @@ export const shallowEqual = (a: any, b: any) => {
         return false;
     }
 
+    // eslint-disable-next-line no-self-compare
     if (Array.isArray(a) !== Array.isArray(b)) {
         return false;
     }
