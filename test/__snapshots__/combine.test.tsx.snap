@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`combine should combine all different types 1`] = `
+Array [
+  Object {
+    "buz": "bax",
+    "foo": "bar",
+    "nom": "nom",
+  },
+  Object {
+    "buz": "bax",
+    "foo": "bar",
+    "lup": "bar3",
+    "nom": "nom",
+  },
+  Object {
+    "buz": "bax",
+    "foo": "bar2",
+    "lup": "bar3",
+    "nom": "nom",
+  },
+]
+`;
+
+exports[`combine should combine multiple objects 1`] = `
+Array [
+  Object {
+    "foo": "nom",
+    "nom": "bar",
+    "qux": "qax",
+  },
+]
+`;
+
+exports[`combine should combine multiple objects with observables 1`] = `
+Array [
+  Object {
+    "foo": "bar",
+    "nom": "nom",
+    "qux": "qax",
+  },
+  Object {
+    "foo": "bar",
+    "nom": "nax",
+    "qux": "qax",
+  },
+  Object {
+    "foo": "bar",
+    "nom": "nax",
+    "qux": "qux",
+  },
+]
+`;
+
+exports[`combine should combine multiple observables 1`] = `
+Array [
+  Object {
+    "foo": "nom",
+    "nom": "bar",
+    "qux": "qax",
+  },
+  Object {
+    "foo": "bar",
+    "nom": "bar2",
+    "qux": "qax",
+  },
+  Object {
+    "foo": "bar",
+    "nom": "bar3",
+  },
+]
+`;
