@@ -1,6 +1,6 @@
 # 🥁 bassdrum
 
-bassdrum is a thin wrapper around `preact` that let's you create reactive type safe components with `rxjs`.
+bassdrum is a thin wrapper (3KB, 963 bytes gzip) around `preact` that let's you create reactive type safe components with `rxjs`.
 
 Prior art: [melody-streams](https://github.com/trivago/melody/tree/master/packages/melody-streams)
 
