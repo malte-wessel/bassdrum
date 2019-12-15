@@ -1,9 +1,8 @@
-import { isObservable, Observable } from 'rxjs';
-import { UnfoldObservable } from '../types/util';
-import { mergeIntoObject } from './mergeIntoObject';
-import { mergeObject } from './mergeObject';
+import { isObservable, Observable, combineLatest, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { UnfoldObservable, Dictionary } from '../types/util';
 
-type ObservableOrObject = Observable<any> | object;
+type ObservableOrDictionary = Observable<any> | Dictionary<any>;
 
 export function combine<T1>(t1: T1): Observable<UnfoldObservable<T1>>;
 export function combine<T1, T2>(
@@ -56,10 +55,31 @@ export function combine<T1, T2, T3, T4, T5, T6>(
         UnfoldObservable<T5> &
         UnfoldObservable<T6>
 >;
-export function combine(...streams: ObservableOrObject[]) {
-    return mergeIntoObject(
-        ...streams.map(stream =>
-            isObservable(stream) ? stream : mergeObject(stream),
-        ),
+
+export function combine(...streams: ObservableOrDictionary[]) {
+    const sources = [];
+    for (let i = 0, l = streams.length; i < l; i++) {
+        const stream = streams[i];
+        if (isObservable(stream)) {
+            sources.push(stream);
+        } else {
+            for (const key in stream) {
+                const value = stream[key];
+                sources.push(
+                    isObservable(value)
+                        ? value.pipe(
+                              map(value => ({
+                                  [key]: value,
+                              })),
+                          )
+                        : of({
+                              [key]: value,
+                          }),
+                );
+            }
+        }
+    }
+    return combineLatest(...sources).pipe(
+        map(values => Object.assign({}, ...values)),
     );
 }
