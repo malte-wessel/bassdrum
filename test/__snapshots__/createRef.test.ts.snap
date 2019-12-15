@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createRef should return a handler function and subject 1`] = `
+exports[`createRef should return a ref function and stream 1`] = `
 Array [
   null,
   <div />,

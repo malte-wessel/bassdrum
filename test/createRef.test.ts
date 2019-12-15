@@ -1,6 +1,6 @@
 import { createRef } from '../src/util/createRef';
 describe('createRef', () => {
-    it('should return a handler function and subject', () => {
+    it('should return a ref function and stream', () => {
         const el = document.createElement('div');
         const [ref, stream] = createRef<HTMLDivElement>();
 
