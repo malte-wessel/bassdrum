@@ -82,13 +82,14 @@ export const createComponent = <P, S>(
                     hasEmitted = true;
                     this.setState(state);
                 });
-
-            if (!hasEmitted) {
-                throw new Error(
-                    'Your Component did not emit any state when it was created. ' +
-                        'Make sure the Observable you return from your ' +
-                        'component function emits immediately.',
-                );
+            if (process.env.NODE_ENV !== 'production') {
+                if (!hasEmitted) {
+                    throw new Error(
+                        'Your Component did not emit any state when it was created. ' +
+                            'Make sure the Observable you return from your ' +
+                            'component function emits immediately.',
+                    );
+                }
             }
             return subscription;
         }
