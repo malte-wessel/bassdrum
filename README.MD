@@ -2,7 +2,7 @@
 
 bassdrum is a thin wrapper (3KB, 963 bytes gzip) around `preact` that let's you create reactive type safe components with `rxjs`.
 
-Prior art: [melody-streams](https://github.com/trivago/melody/tree/master/packages/melody-streams)
+[![Actions Status](https://github.com/malte-wessel/bassdrum/workflows/Node%20CI/badge.svg)](https://github.com/malte-wessel/bassdrum/actions)
 
 ## The gist
 
@@ -371,3 +371,6 @@ if (root) {
     render(<Component name="Malte" />, root);
 }
 ```
+## Prior art
+The idea of transforming `props` to `state` with `rxjs` originates from
+[melody-streams](https://github.com/trivago/melody/tree/master/packages/melody-streams)
