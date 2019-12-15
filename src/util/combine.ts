@@ -55,7 +55,10 @@ export function combine<T1, T2, T3, T4, T5, T6>(
         UnfoldObservable<T5> &
         UnfoldObservable<T6>
 >;
-
+/**
+ * `combine` merges data from Observables and plain objects that hold primitive values or Observables. The returned Observable emits whenever one of its input Observables emits.
+ * @param streams
+ */
 export function combine(...streams: ObservableOrDictionary[]) {
     const sources = [];
     for (let i = 0, l = streams.length; i < l; i++) {

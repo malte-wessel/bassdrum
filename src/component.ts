@@ -60,6 +60,10 @@ export type ComponentFunction<P, S> = (
 
 export type ComponentTemplate<S> = (state: S) => ComponentChild;
 
+/**
+ * Creates the api for the component function
+ * @param component The bassdrum component
+ */
 const createComponentAPI = <P, S>(
     component: BassdrumComponent<P, S>,
 ): ComponentFunctionApi<P> => ({
@@ -69,6 +73,11 @@ const createComponentAPI = <P, S>(
     updates: component.updates,
 });
 
+/**
+ * Creates a bassdrum component
+ * @param componentFunction The component function that receives the `props` and `updates` stream, and a subscribe function
+ * @param template The template function that receives your state data and returns jsx
+ */
 export const createComponent = <P, S>(
     componentFunction: ComponentFunction<P, S>,
     template: ComponentTemplate<S>,
