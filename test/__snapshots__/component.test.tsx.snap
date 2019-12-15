@@ -8,6 +8,35 @@ exports[`Component renders a component 1`] = `
 </div>
 `;
 
+exports[`Component should only rerender when state has changed 1`] = `
+Object {
+  "receives": Array [
+    Object {
+      "bar": "nom",
+      "foo": "bar",
+    },
+    Object {
+      "bar": "mon",
+      "foo": "bar",
+    },
+    Object {
+      "bar": "mon2",
+      "foo": "bar",
+    },
+  ],
+  "renders": Array [
+    Object {
+      "foo": "bar",
+      "size": 3,
+    },
+    Object {
+      "foo": "bar",
+      "size": 4,
+    },
+  ],
+}
+`;
+
 exports[`Component supports lifecylce methods 1`] = `
 Object {
   "mountedEvents": Array [
