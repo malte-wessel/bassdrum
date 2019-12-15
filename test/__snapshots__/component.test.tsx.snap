@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component renders a component 1`] = `
+<div>
+  <div>
+    bar
+  </div>
+</div>
+`;
+
 exports[`Component supports lifecylce methods 1`] = `
 Object {
   "mountedEvents": Array [

@@ -7,6 +7,8 @@ import {
 } from '../src/component';
 import { combine } from '../src/util/combine';
 import { createRef } from '../src/util/createRef';
+import { createHandler } from '../src/util/createHandler';
+import { Handler, MouseEvent } from '../src/types/events';
 
 describe('Component', () => {
     it('renders a component', () => {
@@ -24,6 +26,7 @@ describe('Component', () => {
 
         const root = document.createElement('div');
         render(<Component foo="bar" />, root);
+        expect(root).toMatchSnapshot();
     });
 
     it('throws when component function does not emit', () => {
@@ -41,6 +44,39 @@ describe('Component', () => {
         expect(() => {
             render(<Component />, root);
         }).toThrow();
+    });
+
+    it('supports handlers', done => {
+        interface Props {}
+        interface State {
+            handleClick: Handler<MouseEvent<HTMLDivElement>>;
+        }
+
+        const cfn: ComponentFunction<Props, State> = ({ subscribe }) => {
+            const [handleClick, event] = createHandler<
+                MouseEvent<HTMLDivElement>
+            >();
+            subscribe(
+                event.pipe(
+                    tap(event => {
+                        expect(event).toBeInstanceOf(MouseEvent);
+                        done();
+                    }),
+                ),
+            );
+            return combine({ handleClick });
+        };
+        const ct: ComponentTemplate<State> = state => (
+            <div id="target" onClick={state.handleClick}></div>
+        );
+        const Component = createComponent(cfn, ct);
+
+        const root = document.createElement('div');
+        document.body.appendChild(root);
+        render(<Component />, root);
+
+        const target = document.getElementById('target');
+        target?.click();
     });
 
     it('supports refs', done => {
