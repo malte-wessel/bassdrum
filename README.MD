@@ -1,12 +1,16 @@
 # 🥁 bassdrum
 
-bassdrum is a thin wrapper (2KB, 1KB gzip) around `preact` that let's you create reactive type safe components with `rxjs`.
+bassdrum let's you create **reactive, type safe components** with `preact` and `rxjs`.
+
+-   Handle data transformation, events and side effects with `rxjs`
+-   Let `preact` render your JSX templates
+-   bassdrum components are _fully compatible_ with `preact`
 
 [![Actions Status](https://github.com/malte-wessel/bassdrum/workflows/Node%20CI/badge.svg)](https://github.com/malte-wessel/bassdrum/actions)
 
 ## The gist
 
-With bassdrum you create components by transforming `props` to `state` with `rxjs` and render them with `preact`.
+With bassdrum you create components by transforming `props` to `state` with `rxjs`. The transformed `state` will be passed to your JSX template and gets rendered with `preact`.
 
 ```tsx
 interface Props {
