@@ -4,6 +4,7 @@ bassdrum let's you create **reactive, type safe components** with `preact` and `
 
 -   Handle data transformation, events and side effects with `rxjs`
 -   Let `preact` render your JSX templates
+-   bassdrum is tiny 2KB (1KB gzip)
 -   bassdrum components are _fully compatible_ with `preact`
 
 [![Actions Status](https://github.com/malte-wessel/bassdrum/workflows/Node%20CI/badge.svg)](https://github.com/malte-wessel/bassdrum/actions)
