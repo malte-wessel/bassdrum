@@ -8,7 +8,7 @@ import {
     Handler,
 } from 'bassdrum';
 
-import { bindHandler } from '../operators/bindHandler';
+import { bindHandler } from '../util/bindHandler';
 import { Todo } from './reducer';
 
 interface TodoItemProps {

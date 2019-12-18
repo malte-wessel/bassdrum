@@ -1,6 +1,6 @@
 import { h, JSX } from 'preact';
 import { merge } from 'rxjs';
-import { pluck, startWith, map, scan } from 'rxjs/operators';
+import { pluck, map } from 'rxjs/operators';
 import {
     createComponent,
     ComponentFunction,
@@ -10,8 +10,9 @@ import {
     Handler,
 } from 'bassdrum';
 
-import { preventDefault } from '../operators/preventDefault';
-import { filterNotNil } from '../operators/filter';
+import { createState } from '../util/createState';
+import { preventDefault } from '../util/preventDefault';
+import { filterNotNil } from '../util/filter';
 import {
     initialState,
     reducer,
@@ -40,21 +41,21 @@ const TodoListFn: ComponentFunction<{}, TodoListState> = () => {
     const [handleRemove, removeEvent] = createHandler<number>();
     const [handleInputChange, inputEvent] = createHandler<InputChangeEvent>();
 
-    const inputAction = inputEvent.pipe(
+    const input = inputEvent.pipe(
         pluck('currentTarget'),
         filterNotNil(),
         pluck('value'),
-        map(createInputAction),
     );
-    const addAction = addEvent.pipe(preventDefault(), map(createAddAction));
+
+    const add = addEvent.pipe(preventDefault());
+
+    const inputAction = input.pipe(map(createInputAction));
+    const addAction = add.pipe(map(createAddAction));
     const doneAction = doneEvent.pipe(map(createDoneAction));
     const removeAction = removeEvent.pipe(map(createRemoveAction));
     const actions = merge(inputAction, addAction, removeAction, doneAction);
 
-    const state = actions.pipe(
-        scan(reducer, initialState),
-        startWith(initialState),
-    );
+    const state = createState(reducer, initialState, actions);
 
     return combine(state, {
         handleInputChange,
