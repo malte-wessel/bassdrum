@@ -2,7 +2,7 @@ import { Subject, BehaviorSubject, Observable } from 'rxjs';
 import { bindActions } from './bindActions';
 import { Dictionary } from '../types/util';
 
-export interface Action<T = any> {
+export interface Action<T = string> {
     type: T;
 }
 
@@ -29,7 +29,7 @@ export const createStore = <S, A extends Action, T extends ActionCreators<A>>(
     actions.subscribe(action => state.next(reducer(state.value, action)));
 
     if (epic) {
-        epic(actions, state).subscribe(action => actions.next(action));
+        epic(actions, state).subscribe((action: A) => actions.next(action));
     }
 
     const boundActions = bindActions(actionCreators, actions);
