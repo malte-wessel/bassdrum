@@ -30,16 +30,16 @@ interface TodoListState {
     todos: Todo[];
     value: string;
     handleInputChange: Handler<InputChangeEvent>;
-    handleAdd: Handler<Event>;
+    handleSubmit: Handler<Event>;
     handleDone: Handler<number>;
     handleRemove: Handler<number>;
 }
 
 const TodoListFn: ComponentFunction<{}, TodoListState> = () => {
-    const [handleAdd, addEvent] = createHandler<Event>();
     const [handleDone, doneEvent] = createHandler<number>();
     const [handleRemove, removeEvent] = createHandler<number>();
     const [handleInputChange, inputEvent] = createHandler<InputChangeEvent>();
+    const [handleSubmit, submitEvent] = createHandler<Event>();
 
     const input = inputEvent.pipe(
         pluck('currentTarget'),
@@ -47,7 +47,7 @@ const TodoListFn: ComponentFunction<{}, TodoListState> = () => {
         pluck('value'),
     );
 
-    const add = addEvent.pipe(preventDefault());
+    const add = submitEvent.pipe(preventDefault());
 
     const inputAction = input.pipe(map(createInputAction));
     const addAction = add.pipe(map(createAddAction));
@@ -59,7 +59,7 @@ const TodoListFn: ComponentFunction<{}, TodoListState> = () => {
 
     return combine(state, {
         handleInputChange,
-        handleAdd,
+        handleSubmit,
         handleDone,
         handleRemove,
     });
@@ -69,12 +69,12 @@ const TodoListTemplate: ComponentTemplate<TodoListState> = ({
     todos,
     value,
     handleInputChange,
-    handleAdd,
+    handleSubmit,
     handleDone,
     handleRemove,
 }) => (
     <main>
-        <form onSubmit={handleAdd}>
+        <form onSubmit={handleSubmit}>
             <input type="text" value={value} onInput={handleInputChange} />
             <button type="submit">Add Todo</button>
         </form>
