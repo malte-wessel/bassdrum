@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createState should reduce actions to state 1`] = `
+Array [
+  0,
+  1,
+  2,
+  1,
+]
+`;
