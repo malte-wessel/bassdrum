@@ -1040,9 +1040,9 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
-bassdrum@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/bassdrum/-/bassdrum-1.2.3.tgz#abaecf34751fd78c5abed51092b619b0031a435a"
+bassdrum@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/bassdrum/-/bassdrum-1.3.0.tgz#c86b7b6b6b058edcf7bcbbde261133fcf076fb08"
 
 batch@0.6.1:
   version "0.6.1"

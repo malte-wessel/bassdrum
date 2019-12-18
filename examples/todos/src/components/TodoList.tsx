@@ -7,10 +7,10 @@ import {
     ComponentTemplate,
     combine,
     createHandler,
+    createState,
     Handler,
 } from 'bassdrum';
 
-import { createState } from '../util/createState';
 import { preventDefault } from '../util/preventDefault';
 import { filterNotNil } from '../util/filter';
 import {
