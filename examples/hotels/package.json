@@ -28,7 +28,7 @@
         "@types/classnames": "^2.2.9",
         "@types/lodash": "^4.14.148",
         "bassdrum": "^1.2.0",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.19",
         "preact": "^10.0.5",
         "rxjs": "^6.5.3"
     }
