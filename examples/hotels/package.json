@@ -16,7 +16,7 @@
         "babel-plugin-transform-react-jsx": "^6.24.1",
         "classnames": "^2.2.6",
         "css-loader": "1.0.0",
-        "node-sass": "^4.13.0",
+        "node-sass": "^4.13.1",
         "sass-loader": "^8.0.0",
         "style-loader": "^1.0.0",
         "typings-for-css-modules-loader": "^1.7.0",
